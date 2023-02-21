@@ -133,7 +133,7 @@
                 </a>
               </li>
               <li class="nav-item"  v-if="client[0].admin">
-                <a class="nav-link d-flex align-items-center me-2" href="#!">
+                <a class="nav-link d-flex align-items-center me-2" href="../Table/index.html">
                   <i class="fa-solid fa-lock"></i>&nbsp;Administrar
                 </a>
               </li>
@@ -143,7 +143,7 @@
               <a class="nav-link d-flex flex-row-reverse" style= "color:white;" href="#!">{{client[0].name.first}} {{client[0].name.last}}&nbsp;</a>
           </div>
           <div class= "col" style="margin-right: 20px;">
-              <img :src="client[0].pic" class="rounded-circle" height="40" alt="Black and White Portrait of a Man" loading="lazy"/>
+              <img :src="client[0].pic" class="rounded-circle" height="40" alt="client pic" loading="lazy"/>
           </div>
           <div class= "col">
             <a class="btn text-white" style="background-color: #c61118;" @click="logout">

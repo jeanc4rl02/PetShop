@@ -24,7 +24,7 @@ var app = new Vue({
           specie: this.specie,
           gender: this.gender,
           breed: this.breed,
-          age: this.age,
+          age: this.age+" meses",
           color: this.color,
           description: this.description,
           img: this.img
