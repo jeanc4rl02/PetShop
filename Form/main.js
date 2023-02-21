@@ -67,28 +67,11 @@ var app = new Vue({
     arrayAdopted:[],
     },
     methods: {
-      adopt(index){
-        let pet = this.arrayPets.filter((p) => p.id == this.arrayPets[index].id);
-        Swal.fire({
-          title: `¿Estás seguro que deseas adoptar a ${this.arrayPets[index].name}?`,
-          showDenyButton: true,
-          confirmButtonText: `Confirmar`,
-          denyButtonText: `Seguir buscando`,
-         }).then((result) => {
-          if (result.isConfirmed){
-            pet[0].status = false;
-            this.arrayAdopted.push(pet[0])
-            this.arrayPets.splice(index, 1)
-            localStorage.setItem("arrayPets", JSON.stringify(this.arrayPets))
-            localStorage.setItem("arrayAdopted", JSON.stringify(this.arrayAdopted))
-          }
-          })
-      },  
-      logout() {
-        localStorage.removeItem("client");
-        localStorage.removeItem("name");
-        window.location = "../index.html";
-      },
+        logout() {
+            localStorage.removeItem("client");
+            localStorage.removeItem("name");
+            window.location = "../index.html";
+          },
     },
     created(){
       this.client = JSON.parse(localStorage.getItem("client"));
