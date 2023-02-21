@@ -5,14 +5,14 @@ var app = new Vue({
       arrayPets: [
       {
         id: 1,
-        img: "../assets/img/max1.jpeg",
+        img: "../assets/img/max.jpg",
         name: "Max",
         specie: "Perro",
         breed: "Labrador",
         gender: "Macho",
         color: "Negro",
         age: "5 meses",
-        desc: "",
+        description: "Poco juguetón, amigable, calmado",
         status: true,
       },
       {
@@ -23,8 +23,8 @@ var app = new Vue({
         breed: "Labrador",
         gender: "Macho",
         color: "Negro",
-        age: "5 meses",
-        desc: "",
+        age: "7 meses",
+        description: "Poco juguetón, amigable, calmado",
         status: true,
       },
       {
@@ -35,8 +35,8 @@ var app = new Vue({
         breed: "Labrador",
         gender: "Macho",
         color: "Negro",
-        age: "5 meses",
-        desc: "",
+        age: "8 meses",
+        description: "Poco juguetón, amigable, calmado",
         status: true,
       },
       {
@@ -47,20 +47,20 @@ var app = new Vue({
         breed: "Labrador",
         gender: "Macho",
         color: "Negro",
-        age: "5 meses",
-        desc: "",
+        age: "9 meses",
+        description: "Poco juguetón, amigable, calmado",
         status: true,
       },
       {
         id: 5,
         img: "../assets/img/max.jpg",
-        name: "Max",
-        specie: "Perro",
-        breed: "Labrador",
+        name: "Pachecho",
+        specie: "Gato",
+        breed: "Criollo",
         gender: "Macho",
-        color: "Negro",
+        color: "Gris",
         age: "5 meses",
-        desc: "",
+        description: "Poco juguetón, amigable, altivo",
         status: true,
       },
     ],
@@ -96,6 +96,8 @@ var app = new Vue({
         
       if(JSON.parse(localStorage.getItem("arrayPets")) != null){
         this.arrayPets = JSON.parse(localStorage.getItem("arrayPets"))
+      } else {
+        localStorage.setItem("arrayPets", JSON.stringify(this.arrayPets))
       }
     }
   })

@@ -2,71 +2,41 @@ var app = new Vue({
     el: '#app',
     data: {
       client: [],
-      arrayPets: [
-      {
-        id: 1,
-        img: "../assets/img/max1.jpeg",
-        name: "Max",
-        specie: "Perro",
-        breed: "Labrador",
-        gender: "Macho",
-        color: "Negro",
-        age: "5 meses",
-        desc: "",
-        status: true,
-      },
-      {
-        id: 2,
-        img: "../assets/img/max2.jpeg",
-        name: "Lucas",
-        specie: "Perro",
-        breed: "Labrador",
-        gender: "Macho",
-        color: "Negro",
-        age: "5 meses",
-        desc: "",
-        status: true,
-      },
-      {
-        id: 3,
-        img: "../assets/img/max3.jpeg",
-        name: "Tobi",
-        specie: "Perro",
-        breed: "Labrador",
-        gender: "Macho",
-        color: "Negro",
-        age: "5 meses",
-        desc: "",
-        status: true,
-      },
-      {
-        id: 4,
-        img: "../assets/img/max4.jpeg",
-        name: "Félix",
-        specie: "Perro",
-        breed: "Labrador",
-        gender: "Macho",
-        color: "Negro",
-        age: "5 meses",
-        desc: "",
-        status: true,
-      },
-      {
-        id: 5,
-        img: "../assets/img/max.jpg",
-        name: "Max",
-        specie: "Perro",
-        breed: "Labrador",
-        gender: "Macho",
-        color: "Negro",
-        age: "5 meses",
-        desc: "",
-        status: true,
-      },
-    ],
-    arrayAdopted:[],
+      arrayPets: [],
+      arrayAdopted:[],
+      name: null,
+      breed: null,
+      gender: null,
+      color: null,
+      age: null,
+      description: null,
+      specie: null,
+      img: null,
+      error: false,
     },
     methods: {
+      giveUpAdoption() {
+        if(this.name != null && this.specie != null && this.gender != null && this.breed != null && this.age != null && this.color != null && this.description != null){
+          this.error = false;
+          this.arrayPets.push({
+          id: this.arrayPets.length + this.arrayAdopted.length + 1,
+          name: this.name,
+          specie: this.specie,
+          gender: this.gender,
+          breed: this.breed,
+          age: this.age,
+          color: this.color,
+          description: this.description,
+          img: this.img
+        })
+          localStorage.setItem("arrayPets", JSON.stringify(this.arrayPets))
+          window.location = "../Landing/index.html";
+        } else {
+          this.error = true;
+        }
+        
+        
+      },
         logout() {
             localStorage.removeItem("client");
             localStorage.removeItem("name");

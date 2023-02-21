@@ -13,6 +13,108 @@
   </head>
   <body>
     <div id="app">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Selecciona una fotografia</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div v-if="specie == 'Perro'">
+                  <div class="col-md-8 mb-4">
+                    <h6 class="mb-2 pb-1">Escoja una de las siguientes opciones: </h6>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="img"
+                        id="max1"
+                        value="../assets/img/max1.jpeg"
+                        v-model="img"
+                      />
+                      <img src="../assets/img/max1.jpeg" class="card-img-top"
+                      alt="c.name" />
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="img"
+                        id="max2"
+                        value="../assets/img/max2.jpeg"
+                        v-model="img"
+                      />
+                      <img src="../assets/img/max2.jpeg" class="card-img-top"
+                      alt="c.name" />
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="img"
+                        id="max3"
+                        value="../assets/img/max3.jpeg"
+                        v-model="img"
+                      />
+                      <img src="../assets/img/max3.jpeg" class="card-img-top"
+                      alt="c.name" />
+                    </div>
+                  </div>
+                </div>
+              <div v-else-if="specie == 'Gato'">
+                <div class="col-md-8 mb-4">
+                  <h6 class="mb-2 pb-1">Escoja una de las siguientes opciones: </h6>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="img"
+                      id="gato1"
+                      value="../assets/img/gato1.jpg"
+                      v-model="img"
+                    />
+                    <img src="../assets/img/gato1.jpg" class="card-img-top"
+                    alt="c.name" />
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="img"
+                      id="gato2"
+                      value="../assets/img/gato2.jpg"
+                      v-model="img"
+                    />
+                    <img src="../assets/img/gato2.jpg" class="card-img-top"
+                    alt="c.name" />
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="img"
+                      id="gato3"
+                      value="../assets/img/gato3.jpg"
+                      v-model="img"
+                    />
+                    <img src="../assets/img/gato3.jpg" class="card-img-top"
+                    alt="c.name" />
+                  </div>
+                </div>
+              </div>
+              <div v-else>
+                <p style="color:brown;" class="text-center">Seleccione una especie</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-mdb-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
       <!-- NavBar   -->
       <div class="mb-5">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -66,7 +168,7 @@
                           <div class="row">
                             <div class="col-md-6 mb-4">
                               <div class="form-outline">
-                                <input type="text" id="firstName" class="form-control" />
+                                <input type="text" id="firstName" class="form-control" v-model="name"/>
                                 <label class="form-label" for="firstName">Nombre</label>
                               </div>
                             </div>
@@ -76,21 +178,23 @@
                                 <input
                                   class="form-check-input"
                                   type="radio"
-                                  name="inlineRadioOptions"
+                                  name="specie"
                                   id="dog"
-                                  value="option1"
+                                  value="Perro"
+                                  v-model="specie"
                                 />
-                                <label class="form-check-label" for="femaleGender">Perro</label>
+                                <label class="form-check-label" for="dog">Perro</label>
                               </div>
                               <div class="form-check form-check-inline">
                                 <input
                                   class="form-check-input"
                                   type="radio"
-                                  name="inlineRadioOptions"
+                                  name="specie"
                                   id="cat"
-                                  value="option2"
+                                  value="Gato"
+                                  v-model="specie"
                                 />
-                                <label class="form-check-label" for="maleGender">Gato</label>
+                                <label class="form-check-label" for="cat">Gato</label>
                               </div>
                             </div>
                           </div>
@@ -101,6 +205,7 @@
                                   type="text"
                                   class="form-control"
                                   id="breed"
+                                  v-model="breed"
                                 />
                                 <label for="breed" class="form-label">Raza</label>
                               </div>
@@ -111,9 +216,10 @@
                                 <input
                                   class="form-check-input"
                                   type="radio"
-                                  name="inlineRadioOptions"
+                                  name="gender"
                                   id="maleGender"
-                                  value="option1"
+                                  value="Macho"
+                                  v-model="gender"
                                 />
                                 <label class="form-check-label" for="maleGender">Macho</label>
                               </div>
@@ -121,9 +227,10 @@
                                 <input
                                   class="form-check-input"
                                   type="radio"
-                                  name="inlineRadioOptions"
+                                  name="gender"
                                   id="femaleGender"
-                                  value="option2"
+                                  value="Hembra"
+                                  v-model="gender"
                                 />
                                 <label class="form-check-label" for="femaleGender">Hembra</label>
                               </div>
@@ -132,13 +239,13 @@
                           <div class="row">
                             <div class="col-md-6 mb-4">
                               <div class="form-outline">
-                                <input type="text" id="color" class="form-control" />
+                                <input type="text" id="color" class="form-control" v-model="color"/>
                                 <label class="form-label" for="color">Color</label>
                               </div>
                             </div>
                             <div class="col-md-6 mb-4">
                               <div class="form-outline">
-                                <input type="number" id="age" class="form-control" />
+                                <input type="number" id="age" class="form-control" v-model="age"/>
                                 <label class="form-label" for="age">Edad (meses)</label>
                               </div>
                             </div>
@@ -146,12 +253,16 @@
                           <div class="row">
                             <div class="col-12">
                               <div class="form-outline">
-                                <input type="text" id="description" class="form-control" />
+                                <input type="text" id="description" class="form-control" v-model="description" />
                                 <label class="form-label" for="description"></label>
                               </div>
                               <label class="form-label select-label">Descripción adicional</label>
+                              <p v-show="error" style="color:brown;" class="text-center">Complete todos los datos, por favor.</p>
                               <div class="mt-4">
-                                <input class="btn btn-warning btn-lg" type="submit" value="Submit" />
+                                <button type="button" class="btn btn-primary mb-3" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                                  Cargar imagen
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block mb-3 col-12" @click="giveUpAdoption">Envíar</button>
                               </div>
                             </div>
                           </div>

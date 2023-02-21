@@ -65,3 +65,7 @@
           0.1em 0.1em 1em rgba(140,88,38);  
     border-radius: 5px; 
   }
+
+  .card-img-top{
+    height: 250px;
+  }
